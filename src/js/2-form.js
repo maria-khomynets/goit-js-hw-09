@@ -6,14 +6,7 @@ let formData = {
   message: '',
 };
 
-form.addEventListener('input', handleInput);
-
-function handleInput(event) {
-  formData[event.target.name] = event.target.value;
-
-  localStorage.setItem(localStorageKey, JSON.stringify(formData));
-}
-
+// ВІДНОВЛЕННЯ (ОДРАЗУ ПРИ ЗАПУСКУ)
 dataStorage();
 
 function dataStorage() {
@@ -29,6 +22,16 @@ function dataStorage() {
   form.elements.message.value = formData.message;
 }
 
+// INPUT — збереження
+form.addEventListener('input', handleInput);
+
+function handleInput(event) {
+  formData[event.target.name] = event.target.value;
+
+  localStorage.setItem(localStorageKey, JSON.stringify(formData));
+}
+
+// SUBMIT
 form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
