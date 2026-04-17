@@ -6,7 +6,6 @@ let formData = {
   message: '',
 };
 
-// ЗБЕРЕЖЕННЯ ПРИ ВВЕДЕННІ
 form.addEventListener('input', handleInput);
 
 function handleInput(event) {
@@ -15,8 +14,7 @@ function handleInput(event) {
   localStorage.setItem(localStorageKey, JSON.stringify(formData));
 }
 
-// ВІДНОВЛЕННЯ ПРИ ЗАВАНТАЖЕННІ
-window.addEventListener('load', dataStorage);
+dataStorage();
 
 function dataStorage() {
   const savedData = localStorage.getItem(localStorageKey);
@@ -31,7 +29,6 @@ function dataStorage() {
   form.elements.message.value = formData.message;
 }
 
-// SUBMIT
 form.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
